@@ -1,0 +1,11 @@
+> output.main <- read.delim("Z:/Stapleton Lab/Practice/ggplot2/output-main.txt")
+> View(output.main)
+> x=output.main$GeneticDistance
+> y=output.main$Pvalue
+> ylog=(-log(y))
+> plot(x,ylog)
+> rbPal <- colorRampPalette(c('lightblue','black'))
+> z=abs(output.main$SNPWeight)
+> output.main$Col <- rbPal(3235)[as.numeric(cut(z, breaks=3235))]
+> plot(x,ylog, col=output.main$Col)
+> abline(h=-log(0.05))
